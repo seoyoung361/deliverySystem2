@@ -184,7 +184,7 @@ void str_freeSystem(void) {
 	
 	int i;
 	
-	for(i=0; i<systemSize[0]; i++) 
+	for(i=0; i<systemSize[0]; i++)  //free the memory
 	{
 		free(deliverySystem[i]);
 	}
@@ -283,7 +283,7 @@ int str_extractStorage(int x, int y) {
 	if(inputPasswd(x,y) == 0 )  //check password is coordinated
 	{
 		printStorageInside(x,y);
-		initStorage(x,y);
+		initStorage(x,y); //initiate storage
 		storedCnt--;  // extract the storage and minus storedcnt
 		
 		return 0;
