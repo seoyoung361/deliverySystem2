@@ -128,7 +128,7 @@ int str_backupSystem(char* filepath) {
 int str_createSystem(char* filepath) {
 
 	int i;
-	int x, y, c;	
+	int a, b, c;	
 
 	FILE *fp;
 	fp = fopen(filepath, "r");
@@ -146,25 +146,25 @@ int str_createSystem(char* filepath) {
 		}
 				
 		
-		for (x = 0; x < systemSize[0]; x++)                                               //initialize storage
+		for (a = 0; a < systemSize[0]; a++)                                               //initialize storage
 		{
-			for (y = 0; y < systemSize[1]; y++) 
+			for (b = 0; b < systemSize[1]; b++) 
 			{
-				initStorage(x, y);
+				initStorage(a, b);
 			}
 		}
 
 	    while(( c=fgetc(fp))!=EOF)   
 		{
 			storage_t storage = { .context = (char*)malloc(sizeof(char) * (MAX_MSG_SIZE + 1)) };
-			int x = -100, y = -100; // reset x,y with number that never can be 
+			int a = -100, b = -100; // reset x,y with number that never can be 
 			
-			fscanf(fp, "%d %d %d %d %s %s", &x, &y, &storage.building, &storage.room, &storage.passwd, storage.context);
+			fscanf(fp, "%d %d %d %d %s %s", &a, &b, &storage.building, &storage.room, &storage.passwd, storage.context);
 
-			if (x >= 0 && y >= 0) 
+			if (a >= 0 && b >= 0) 
 			{
 				storage.cnt = strlen(storage.context);
-				deliverySystem[x][y] = storage;				
+				deliverySystem[a][b] = storage;				
 				storedCnt++;				
 			}
 		}
