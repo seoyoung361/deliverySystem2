@@ -88,7 +88,7 @@ static int inputPasswd(int x, int y) {
 //char* filepath : filepath and name to write
 //return : 0 - backup was successfully done, -1 - failed to backup
 int str_backupSystem(char* filepath) {
-	
+		
 	FILE *fp;
 	fp = fopen(filepath, "w");  //open file
 	
